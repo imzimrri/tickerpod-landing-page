@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Terms of Service - Tickerpod</title>
+    <link href="tickerpod_logo.png" rel="icon" type="image/png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --neo-black: #000000;
+        --neo-white: #ffffff;
+        --neo-green: #1ed760;
+        --neo-blue: #2962ff;
+      }
+
+      body {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+      }
+
+      .neo-border-black {
+        border: 5px solid var(--neo-black);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-border-green {
+        border: 5px solid var(--neo-green);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-btn {
+        border: 5px solid var(--neo-black);
+        box-shadow: 6px 6px 0px var(--neo-black);
+        transition: all 0.1s ease;
+      }
+
+      .neo-btn:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px var(--neo-black);
+      }
+
+      .neo-btn:active {
+        transform: translate(6px, 6px);
+        box-shadow: 0px 0px 0px var(--neo-black);
+      }
+
+      .neo-text-impact {
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .legal-section {
+        border-left: 5px solid var(--neo-black);
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between bg-white px-4 sm:px-6 lg:px-10 py-6 border-b-6 border-black"
+      >
+        <div class="flex items-center gap-3 text-black">
+          <img
+            src="simple_tickerpod_logo.png"
+            alt="Tickerpod Logo"
+            class="h-10 w-auto"
+            style="filter: contrast(2)"
+          />
+          <h1 class="text-3xl font-black tracking-tighter neo-text-impact">
+            TICKERPOD
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            class="inline-flex items-center justify-center h-12 px-6 bg-black text-white text-base font-black uppercase neo-btn"
+            href="index.html"
+            >Back to Home</a
+          >
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+          <!-- Title Card -->
+          <div
+            class="neo-border-black bg-white p-8 md:p-12 mb-8"
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(41, 98, 255, 0.05) 0%,
+                rgba(255, 255, 255, 1) 100%
+              );
+            "
+          >
+            <h1 class="text-4xl md:text-5xl font-black mb-4 neo-text-impact">
+              Terms of Service
+            </h1>
+            <p class="text-lg font-bold mb-2">
+              Effective Date: December 12, 2025
+            </p>
+            <p class="text-base font-medium">Last Updated: December 12, 2025</p>
+          </div>
+
+          <!-- Content Card -->
+          <div class="neo-border-black bg-white p-8 md:p-12">
+            <!-- Agreement to Terms -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Agreement to Terms
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                Welcome to TickerPod. By accessing or using our service, you
+                agree to be bound by these Terms of Service ("Terms"). If you do
+                not agree to these Terms, you may not use TickerPod.
+              </p>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                These Terms constitute a legally binding agreement between you
+                and TickerPod. Please read them carefully.
+              </p>
+            </section>
+
+            <!-- Service Description -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Service Description
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                TickerPod is an
+                <strong class="font-black"
+                  >automated podcast generation service</strong
+                >
+                that provides stock market information and analysis. Our
+                service:
+              </p>
+              <ul class="list-none space-y-3 ml-4 mb-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-interactive-blue mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Uses artificial intelligence and automated systems to
+                    analyze stock market data
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-interactive-blue mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Generates personalized audio podcasts based on your
+                    specified stock holdings
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-interactive-blue mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Sources information from publicly available data, including
+                    but not limited to news articles, earnings reports, SEC
+                    filings, and market data
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-interactive-blue mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Attempts to cite and attribute information sources whenever
+                    possible, though attribution cannot be guaranteed in all
+                    cases
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Critical Disclaimer -->
+            <section class="legal-section">
+              <div class="bg-red-50 border-6 border-black p-8 mb-6">
+                <h2 class="text-3xl font-black uppercase mb-4 text-center">
+                  ⚠️ IMPORTANT DISCLAIMER ⚠️
+                </h2>
+                <div class="space-y-4">
+                  <div class="bg-white border-4 border-black p-6">
+                    <p class="text-lg font-black uppercase mb-3 text-center">
+                      NOT FINANCIAL ADVICE
+                    </p>
+                    <p class="text-base md:text-lg font-medium leading-relaxed">
+                      <strong class="font-black"
+                        >TickerPod content is provided for informational and
+                        entertainment purposes only.</strong
+                      >
+                      Nothing in our podcasts, website, or communications
+                      constitutes financial advice, investment recommendations,
+                      or an offer to buy or sell securities.
+                    </p>
+                  </div>
+
+                  <div class="bg-white border-4 border-black p-6">
+                    <p class="text-lg font-black uppercase mb-3 text-center">
+                      AI-Generated Content Limitations
+                    </p>
+                    <p class="text-base md:text-lg font-medium leading-relaxed">
+                      Our podcasts are generated using artificial intelligence
+                      models.
+                      <strong class="font-black"
+                        >TickerPod is NOT responsible for any inaccuracies,
+                        errors, misleading information, or omissions</strong
+                      >
+                      that may appear in AI-generated content, even when sources
+                      are cited.
+                    </p>
+                  </div>
+
+                  <div class="bg-white border-4 border-black p-6">
+                    <p class="text-lg font-black uppercase mb-3 text-center">
+                      No Guarantee of Accuracy
+                    </p>
+                    <p class="text-base md:text-lg font-medium leading-relaxed">
+                      While we strive to provide accurate information,
+                      <strong class="font-black"
+                        >we cannot guarantee the accuracy, completeness, or
+                        timeliness of any information</strong
+                      >
+                      presented in our service, including information sourced
+                      from third parties.
+                    </p>
+                  </div>
+
+                  <div class="bg-white border-4 border-black p-6">
+                    <p class="text-lg font-black uppercase mb-3 text-center">
+                      Consult Licensed Professionals
+                    </p>
+                    <p class="text-base md:text-lg font-medium leading-relaxed">
+                      <strong class="font-black"
+                        >You should conduct your own research and consult with
+                        licensed financial advisors, accountants, and legal
+                        professionals</strong
+                      >
+                      before making any investment decisions. Investment
+                      decisions should be based on your individual
+                      circumstances, financial situation, and risk tolerance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Limitation of Liability -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Limitation of Liability
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                To the maximum extent permitted by law:
+              </p>
+              <ul class="list-none space-y-3 ml-4 mb-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">■</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black"
+                      >No Liability for Investment Losses:</strong
+                    >
+                    TickerPod shall not be liable for any investment losses,
+                    damages, or financial harm resulting from your use of or
+                    reliance on our service, content, or information.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">■</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black"
+                      >No Liability for AI Errors:</strong
+                    >
+                    We are not responsible for errors, inaccuracies, or
+                    misleading content generated by AI models, including
+                    hallucinations, incorrect data interpretation, or faulty
+                    analysis.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">■</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black">Maximum Liability:</strong> Our
+                    total liability to you for any claims arising from your use
+                    of TickerPod shall not exceed the amount you paid to us in
+                    the twelve (12) months preceding the claim, or $100 USD,
+                    whichever is less.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">■</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black"
+                      >No Consequential Damages:</strong
+                    >
+                    We shall not be liable for any indirect, incidental,
+                    special, consequential, or punitive damages, including lost
+                    profits, lost data, or business interruption.
+                  </span>
+                </li>
+              </ul>
+              <div class="bg-yellow-50 border-4 border-black p-6 mt-4">
+                <p class="text-base font-black mb-2">
+                  YOU ACKNOWLEDGE AND AGREE:
+                </p>
+                <p class="text-base font-medium leading-relaxed">
+                  Investment in securities involves substantial risk of loss.
+                  Past performance does not guarantee future results. You assume
+                  all risks associated with investment decisions made based on
+                  information from TickerPod.
+                </p>
+              </div>
+            </section>
+
+            <!-- Indemnification -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Indemnification
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                You agree to indemnify, defend, and hold harmless TickerPod, its
+                affiliates, officers, directors, employees, and agents from any
+                claims, liabilities, damages, losses, costs, or expenses
+                (including reasonable attorneys' fees) arising from:
+              </p>
+              <ul class="list-none space-y-2 ml-4 mt-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Your use of TickerPod service
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Your violation of these Terms
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Your investment decisions based on TickerPod content
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Your violation of any third-party rights
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Service Availability -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Service Availability and Modifications
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                TickerPod is provided on an "AS IS" and "AS AVAILABLE" basis:
+              </p>
+              <ul class="list-none space-y-3 ml-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-spotify-green mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black">No Uptime Guarantee:</strong> We
+                    do not guarantee uninterrupted, timely, secure, or
+                    error-free service.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-spotify-green mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black">Modifications:</strong> We
+                    reserve the right to modify, suspend, or discontinue any
+                    aspect of the service at any time without notice.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-spotify-green mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black">Maintenance:</strong> We may
+                    perform maintenance that temporarily interrupts service
+                    availability.
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-spotify-green mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    <strong class="font-black">Beta Services:</strong> Features
+                    marked as "beta" are provided for testing and may contain
+                    errors or be discontinued without notice.
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Intellectual Property -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Intellectual Property Rights
+              </h2>
+              <div class="mb-4">
+                <h3
+                  class="text-xl font-black mb-3 bg-spotify-green inline-block px-2 py-1"
+                >
+                  Our Rights
+                </h3>
+                <p
+                  class="text-base md:text-lg font-medium leading-relaxed mb-3"
+                >
+                  All content, features, and functionality of TickerPod,
+                  including but not limited to text, graphics, logos, software,
+                  and audio content, are owned by TickerPod or its licensors and
+                  are protected by copyright, trademark, and other intellectual
+                  property laws.
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xl font-black mb-3 bg-interactive-blue text-white inline-block px-2 py-1"
+                >
+                  Your License
+                </h3>
+                <p class="text-base md:text-lg font-medium leading-relaxed">
+                  We grant you a limited, non-exclusive, non-transferable,
+                  revocable license to access and use TickerPod for personal,
+                  non-commercial purposes. You may not reproduce, distribute,
+                  modify, create derivative works, publicly display, or exploit
+                  any content without our express written permission.
+                </p>
+              </div>
+            </section>
+
+            <!-- User Conduct -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                User Conduct and Prohibited Activities
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                When using TickerPod, you agree NOT to:
+              </p>
+              <ul class="list-none space-y-3 ml-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Violate any applicable laws or regulations
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Provide false, misleading, or inaccurate information
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Attempt to gain unauthorized access to our systems or
+                    networks
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Use automated systems (bots, scrapers) to access our service
+                    without permission
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Reverse engineer, decompile, or disassemble any aspect of
+                    TickerPod
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Redistribute or resell TickerPod content without
+                    authorization
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Interfere with or disrupt the service or servers
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✗</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Use the service for any illegal or unauthorized purpose
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Termination -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Termination Rights
+              </h2>
+              <div class="space-y-4">
+                <div class="border-l-4 border-black pl-4">
+                  <p class="font-black text-lg mb-2">Your Right to Terminate</p>
+                  <p class="text-base md:text-lg font-medium leading-relaxed">
+                    You may stop using TickerPod at any time. To delete your
+                    account and data, contact us at
+                    <span class="bg-spotify-green px-2 py-1 font-black"
+                      >support@tickerpod.ai</span
+                    >
+                  </p>
+                </div>
+                <div class="border-l-4 border-black pl-4">
+                  <p class="font-black text-lg mb-2">Our Right to Terminate</p>
+                  <p class="text-base md:text-lg font-medium leading-relaxed">
+                    We reserve the right to suspend or terminate your access to
+                    TickerPod at any time, with or without cause, with or
+                    without notice, for any reason including:
+                  </p>
+                  <ul class="list-none space-y-2 ml-4 mt-3">
+                    <li class="flex items-start gap-3">
+                      <span class="font-black text-black mt-1">•</span>
+                      <span class="text-base font-medium leading-relaxed">
+                        Violation of these Terms
+                      </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="font-black text-black mt-1">•</span>
+                      <span class="text-base font-medium leading-relaxed">
+                        Fraudulent, abusive, or illegal activity
+                      </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="font-black text-black mt-1">•</span>
+                      <span class="text-base font-medium leading-relaxed">
+                        Extended periods of inactivity
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Third-Party Content and Links -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Third-Party Content and Links
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                TickerPod may contain links to third-party websites or reference
+                third-party sources. We do not endorse, control, or assume
+                responsibility for any third-party content, websites, products,
+                or services. You access third-party resources at your own risk
+                and subject to their terms and conditions.
+              </p>
+              <div class="bg-gray-100 border-4 border-black p-6">
+                <p class="text-base font-bold mb-2">
+                  Source Attribution Disclaimer:
+                </p>
+                <p class="text-base font-medium leading-relaxed">
+                  While our AI models attempt to cite information sources,
+                  <strong class="font-black"
+                    >we cannot guarantee the accuracy of attributions or the
+                    reliability of cited sources.</strong
+                  >
+                  Always verify information independently.
+                </p>
+              </div>
+            </section>
+
+            <!-- Dispute Resolution -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Dispute Resolution and Arbitration
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                <strong class="font-black"
+                  >PLEASE READ THIS SECTION CAREFULLY.</strong
+                >
+                It affects your legal rights, including your right to file a
+                lawsuit in court.
+              </p>
+              <div class="space-y-4">
+                <div class="border-l-4 border-interactive-blue pl-4">
+                  <p class="font-black text-lg mb-2">Informal Resolution</p>
+                  <p class="text-base md:text-lg font-medium leading-relaxed">
+                    Before filing any formal dispute, you agree to contact us at
+                    <span class="font-black">legal@tickerpod.ai</span> to
+                    attempt informal resolution. We will work in good faith to
+                    resolve the dispute within 30 days.
+                  </p>
+                </div>
+                <div class="border-l-4 border-interactive-blue pl-4">
+                  <p class="font-black text-lg mb-2">Binding Arbitration</p>
+                  <p class="text-base md:text-lg font-medium leading-relaxed">
+                    If informal resolution fails, you agree that any disputes
+                    shall be resolved through binding arbitration rather than in
+                    court, except for disputes that qualify for small claims
+                    court. Arbitration will be conducted by a neutral arbitrator
+                    in accordance with applicable arbitration rules.
+                  </p>
+                </div>
+                <div class="border-l-4 border-interactive-blue pl-4">
+                  <p class="font-black text-lg mb-2">Class Action Waiver</p>
+                  <p class="text-base md:text-lg font-medium leading-relaxed">
+                    You agree to resolve disputes with us on an individual basis
+                    and waive your right to participate in class actions, class
+                    arbitrations, or representative proceedings.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Governing Law -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Governing Law and Jurisdiction
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                These Terms shall be governed by and construed in accordance
+                with the laws of the State of Delaware, United States, without
+                regard to its conflict of law provisions. Any disputes not
+                subject to arbitration shall be brought in the state or federal
+                courts located in Delaware, and you consent to the personal
+                jurisdiction of such courts.
+              </p>
+            </section>
+
+            <!-- Changes to Terms -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Changes to These Terms
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                We reserve the right to modify these Terms at any time. We will
+                notify you of material changes by:
+              </p>
+              <ul class="list-none space-y-2 ml-4 mb-4">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Posting the updated Terms with a new "Effective Date"
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">→</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    Sending email notification for significant changes
+                  </span>
+                </li>
+              </ul>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                Your continued use of TickerPod after changes take effect
+                constitutes acceptance of the modified Terms. If you do not
+                agree to the changes, you must stop using the service.
+              </p>
+            </section>
+
+            <!-- Severability -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Severability and Entire Agreement
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                If any provision of these Terms is found to be unenforceable or
+                invalid, that provision shall be limited or eliminated to the
+                minimum extent necessary so that these Terms shall otherwise
+                remain in full force and effect.
+              </p>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                These Terms, together with our Privacy Policy, constitute the
+                entire agreement between you and TickerPod regarding your use of
+                the service and supersede all prior agreements and
+                understandings.
+              </p>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Contact Information
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed mb-4">
+                If you have questions about these Terms of Service, please
+                contact us:
+              </p>
+              <div class="bg-gray-100 border-4 border-black p-6">
+                <p class="font-black text-lg mb-3">TickerPod Legal Team</p>
+                <p class="text-base font-medium mb-2">
+                  <strong class="font-black">General Inquiries:</strong>
+                  <span class="bg-spotify-green px-2 py-1"
+                    >legal@tickerpod.ai</span
+                  >
+                </p>
+                <p class="text-base font-medium mb-2">
+                  <strong class="font-black">Support:</strong>
+                  <span class="bg-interactive-blue text-black px-2 py-1"
+                    >support@tickerpod.ai</span
+                  >
+                </p>
+                <p class="text-base font-medium">
+                  <strong class="font-black">Response Time:</strong> We aim to
+                  respond within 5 business days.
+                </p>
+              </div>
+            </section>
+
+            <!-- Final Acknowledgment -->
+            <div
+              class="mt-12 p-8 border-6 border-black bg-gradient-to-br from-yellow-50 to-white"
+            >
+              <p class="text-xl font-black uppercase mb-4 text-center">
+                By Using TickerPod, You Acknowledge:
+              </p>
+              <ul class="list-none space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✓</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    You have read and understood these Terms of Service
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✓</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    You understand that TickerPod does not provide financial
+                    advice
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✓</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    You accept the risks and limitations described in these
+                    Terms
+                  </span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-black text-black mt-1">✓</span>
+                  <span
+                    class="text-base md:text-lg font-medium leading-relaxed"
+                  >
+                    You agree to consult licensed financial professionals before
+                    making investment decisions
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- CTA Section -->
+            <div
+              class="mt-12 p-8 neo-border-green bg-gradient-to-br from-green-50 to-white"
+            >
+              <p class="text-xl font-black uppercase mb-4">
+                Questions About These Terms?
+              </p>
+              <p class="text-base font-medium mb-6">
+                Contact our legal team or return to the main site to learn more
+                about TickerPod's AI-powered podcast service.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="index.html"
+                  class="inline-flex items-center justify-center h-12 px-6 bg-black text-white text-base font-black uppercase neo-btn"
+                >
+                  Back to Home
+                </a>
+                <a
+                  href="privacy.html"
+                  class="inline-flex items-center justify-center h-12 px-6 bg-white text-black text-base font-black uppercase neo-btn"
+                >
+                  View Privacy Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t-6 border-black bg-white">
+        <div
+          class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="simple_tickerpod_logo.png"
+              alt="Tickerpod Logo"
+              class="h-8 w-auto"
+              style="filter: contrast(2)"
+            />
+            <p class="text-base font-black uppercase">
+              © 2025 TICKERPOD. ALL RIGHTS RESERVED.
+            </p>
+          </div>
+          <div class="flex items-center gap-4 text-sm font-bold uppercase">
+            <a href="privacy.html" class="hover:underline decoration-4"
+              >Privacy Policy</a
+            >
+            <span>|</span>
+            <a href="terms.html" class="hover:underline decoration-4"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

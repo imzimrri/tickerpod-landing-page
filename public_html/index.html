@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Tickerpod - AI-Powered Stock Portfolio Podcasts</title>
+    <link href="tickerpod_logo.png" rel="icon" type="image/png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --neo-black: #000000;
+        --neo-white: #ffffff;
+        --neo-green: #1ed760;
+        --neo-blue: #2962ff;
+        --neo-green-light: rgba(30, 215, 96, 0.1);
+        --neo-green-medium: rgba(30, 215, 96, 0.2);
+        --neo-blue-light: rgba(41, 98, 255, 0.1);
+        --neo-blue-medium: rgba(41, 98, 255, 0.2);
+      }
+
+      body {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+      }
+
+      .neo-border-black {
+        border: 5px solid var(--neo-black);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-border-white {
+        border: 5px solid var(--neo-white);
+        box-shadow: 8px 8px 0px var(--neo-white);
+      }
+
+      .neo-border-green {
+        border: 5px solid var(--neo-green);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-border-blue {
+        border: 5px solid var(--neo-blue);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-border-heavy {
+        border: 6px solid var(--neo-black);
+        box-shadow: 12px 12px 0px var(--neo-black);
+      }
+
+      .neo-btn {
+        border: 5px solid var(--neo-black);
+        box-shadow: 6px 6px 0px var(--neo-black);
+        transition: all 0.1s ease;
+      }
+
+      .neo-btn:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px var(--neo-black);
+      }
+
+      .neo-btn:active {
+        transform: translate(6px, 6px);
+        box-shadow: 0px 0px 0px var(--neo-black);
+      }
+
+      .neo-card {
+        border: 5px solid var(--neo-black);
+        box-shadow: 8px 8px 0px var(--neo-black);
+        transition: transform 0.2s ease;
+      }
+
+      .neo-card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0px var(--neo-black);
+      }
+
+      .neo-asymmetric-1 {
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+      }
+
+      .neo-asymmetric-2 {
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .neo-rotate-1 {
+        transform: rotate(-1deg);
+      }
+
+      .neo-rotate-2 {
+        transform: rotate(1deg);
+      }
+
+      .neo-text-huge {
+        font-size: clamp(3rem, 12vw, 8rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      .neo-text-impact {
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      @keyframes neo-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .neo-pulse {
+        animation: neo-pulse 2s ease-in-out infinite;
+      }
+
+      .bg-spotify-green {
+        background-color: var(--neo-green);
+      }
+
+      .text-spotify-green {
+        color: var(--neo-green);
+      }
+
+      .bg-interactive-blue {
+        background-color: var(--neo-blue);
+      }
+
+      .text-interactive-blue {
+        color: var(--neo-blue);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black overflow-x-hidden">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <div class="layout-container flex h-full grow flex-col">
+        <!-- Header -->
+        <header
+          class="sticky top-0 z-50 flex items-center justify-between bg-white px-4 sm:px-6 lg:px-10 py-6 border-b-6 border-black"
+        >
+          <div class="flex items-center gap-3 text-black">
+            <img
+              src="simple_tickerpod_logo.png"
+              alt="Tickerpod Logo"
+              class="h-10 w-auto"
+              style="filter: contrast(2)"
+            />
+            <h1 class="text-3xl font-black tracking-tighter neo-text-impact">
+              TICKERPOD
+            </h1>
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-base font-black uppercase hover:underline decoration-4 underline-offset-8"
+              href="#how-it-works"
+              >How it Works</a
+            >
+            <a
+              class="text-base font-black uppercase hover:underline decoration-4 underline-offset-8"
+              href="#features"
+              >Features</a
+            >
+          </nav>
+          <div class="flex items-center gap-4">
+            <a
+              class="hidden md:inline-flex items-center justify-center h-12 px-6 bg-black text-white text-base font-black uppercase neo-btn"
+              href="#mailchimp-form"
+              >Get Early Access</a
+            >
+            <button
+              id="mobile-menu-button"
+              class="md:hidden p-2 border-4 border-black neo-btn bg-spotify-green"
+              aria-label="Toggle mobile menu"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Mobile Navigation Menu -->
+        <div
+          id="mobile-menu-overlay"
+          class="md:hidden fixed inset-0 z-40 bg-black/80 opacity-0 pointer-events-none transition-opacity duration-200"
+          aria-hidden="true"
+        ></div>
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile navigation"
+          aria-hidden="true"
+          data-state="closed"
+          class="md:hidden fixed inset-x-4 top-[100px] z-50 border-6 border-black bg-spotify-green px-6 py-6 space-y-4 neo-border-heavy transition-all duration-200 ease-out opacity-0 pointer-events-none -translate-y-2"
+        >
+          <div class="flex flex-col gap-4">
+            <a
+              class="block text-lg font-black uppercase hover:underline decoration-4"
+              href="#how-it-works"
+            >
+              How it Works
+            </a>
+            <a
+              class="block text-lg font-black uppercase hover:underline decoration-4"
+              href="#features"
+            >
+              Features
+            </a>
+            <a
+              class="block text-lg font-black uppercase text-center py-3 bg-black text-white neo-btn"
+              href="#mailchimp-form"
+            >
+              Get Early Access
+            </a>
+          </div>
+        </nav>
+
+        <main class="flex-1">
+          <!-- Hero Section -->
+          <section
+            class="relative text-center py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-100"
+          >
+            <div class="relative z-10 max-w-6xl mx-auto">
+              <h1
+                class="neo-text-huge font-black mb-6 neo-text-impact neo-rotate-1"
+              >
+                YOUR STOCKS.<br />
+                YOUR PODCAST.<br />
+                <span
+                  class="inline-block bg-black text-spotify-green px-4 py-2 neo-border-green neo-rotate-2"
+                >
+                  YOUR EDGE.
+                </span>
+              </h1>
+              <p
+                class="max-w-3xl mx-auto text-xl md:text-2xl font-bold mb-10 leading-tight"
+              >
+                Stop reading endless research. Get AI-powered market insights
+                tailored to your investments, delivered as a personalized
+                podcast in minutes.
+              </p>
+              <div class="max-w-lg mx-auto mb-16">
+                <a
+                  href="#mailchimp-form"
+                  class="w-full flex items-center justify-center h-16 px-8 bg-black text-spotify-green text-xl font-black uppercase neo-btn"
+                >
+                  Get Early Access →
+                </a>
+              </div>
+
+              <!-- Audio Player -->
+              <div class="mt-12 flex justify-center">
+                <div
+                  class="w-full max-w-2xl neo-card bg-white p-6 neo-rotate-1"
+                >
+                  <div
+                    class="border-4 border-black p-8"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        rgba(30, 215, 96, 0.05) 0%,
+                        rgba(41, 98, 255, 0.05) 100%
+                      );
+                    "
+                  >
+                    <div class="flex items-center gap-6 mb-6">
+                      <div
+                        class="w-24 h-24 bg-black border-4 border-black flex-shrink-0 flex items-center justify-center"
+                      >
+                        <img
+                          src="Gemini_Generated_Image_l21l1pl21l1pl21l-removebg-preview.png"
+                          alt="Your Market Briefing"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div class="flex-1 text-left">
+                        <h3 class="font-black text-2xl uppercase mb-1">
+                          Your Market Briefing
+                        </h3>
+                        <p class="text-base font-bold uppercase">
+                          Tickerpod AI
+                        </p>
+                      </div>
+                    </div>
+                    <div class="space-y-4">
+                      <div
+                        class="h-4 bg-black border-4 border-black w-full cursor-pointer"
+                        id="progress-container"
+                      >
+                        <div
+                          class="h-full bg-spotify-green"
+                          id="progress-bar"
+                          style="width: 0%"
+                        ></div>
+                      </div>
+                      <div
+                        class="flex justify-between text-sm font-black uppercase"
+                      >
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-center items-center gap-8 mt-8">
+                      <button
+                        class="w-14 h-14 bg-white border-4 border-black neo-btn flex items-center justify-center"
+                        id="rewind-btn"
+                      >
+                        <span class="material-symbols-outlined text-3xl"
+                          >replay_10</span
+                        >
+                      </button>
+                      <button
+                        class="w-24 h-24 bg-black border-4 border-black neo-btn flex items-center justify-center neo-pulse"
+                        id="play-btn"
+                      >
+                        <span
+                          class="material-symbols-outlined text-6xl text-spotify-green"
+                          >play_circle</span
+                        >
+                      </button>
+                      <button
+                        class="w-14 h-14 bg-white border-4 border-black neo-btn flex items-center justify-center"
+                        id="forward-btn"
+                      >
+                        <span class="material-symbols-outlined text-3xl"
+                          >forward_10</span
+                        >
+                      </button>
+                      <button
+                        class="text-lg font-black uppercase border-4 border-black px-4 py-2 neo-btn bg-white"
+                        id="speed-btn"
+                      >
+                        1x
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Context Box -->
+              <div
+                class="mt-12 max-w-4xl mx-auto neo-card p-8 text-left neo-rotate-2"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(30, 215, 96, 0.08) 0%,
+                    rgba(255, 255, 255, 1) 100%
+                  );
+                "
+              >
+                <h2
+                  class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+                >
+                  Market Intelligence Crafted Around Your Holdings
+                </h2>
+                <p
+                  class="text-base md:text-lg font-medium leading-relaxed mb-4"
+                >
+                  Tickerpod automatically maps every briefing to the equities
+                  you own. In this sample episode our research engine ingested
+                  a diversified portfolio including <span
+                    class="font-black bg-black text-white px-1"
+                    >Apple</span
+                  >,
+                  <span class="font-black bg-black text-white px-1"
+                    >Workday</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">Alphabet</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">Amazon</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">Broadcom</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">Netflix</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">Costco</span
+                  >,
+                  <span class="font-black bg-black text-white px-1">VICI</span
+                  >, and
+                  <span class="font-black bg-black text-white px-1">Mastercard</span
+                  >—then scanned earnings transcripts, SEC filings, macro data,
+                  and price movement to build a concise storyline around those
+                  tickers. The narration you hear was produced on
+                  <span class="font-black bg-spotify-green px-1"
+                    >December 12, 2025</span
+                  >, so every takeaway reflects the most recent catalysts
+                  affecting this specific allocation.
+                </p>
+                <p class="text-base md:text-lg font-medium leading-relaxed">
+                  Connect your own watchlist and Tickerpod rebuilds the briefing
+                  in minutes, calling out shifts in AI leadership, regulatory
+                  pressure, and valuation trends that matter for
+                  <em class="font-black">your</em> mix. Today each recap
+                  synthesizes the signals that moved markets over the last seven
+                  days so the briefing stays timely and actionable. We're
+                  already building settings that let you choose between
+                  technical or fundamental deep dives and expand the lookback
+                  window when you need a longer narrative. No dashboards, no
+                  doom-scrolling—just a focused, data-backed podcast that keeps
+                  you fluent in your portfolio while you commute, train, or
+                  recharge.
+                </p>
+              </div>
+
+              <audio
+                id="podcast-player"
+                src="podcast-1765567072986-fhz79.wav"
+                class="hidden"
+              ></audio>
+
+              <!-- Mailchimp Form Section -->
+              <div id="mailchimp-form" class="mt-16 max-w-2xl mx-auto">
+                <div class="neo-card bg-white p-8 neo-rotate-1">
+                  <div
+                    class="border-4 border-black p-8"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        rgba(30, 215, 96, 0.05) 0%,
+                        rgba(41, 98, 255, 0.05) 100%
+                      );
+                    "
+                  >
+                    <h2
+                      class="text-3xl font-black uppercase mb-6 text-center neo-text-impact"
+                    >
+                      Get Early Access
+                    </h2>
+                    <p class="text-lg font-medium mb-8 text-center">
+                      Join our beta and be the first to experience AI-powered
+                      portfolio insights.
+                    </p>
+
+                    <!-- Mailchimp Form -->
+                    <div id="mc_embed_shell">
+                      <link
+                        href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
+                        rel="stylesheet"
+                        type="text/css"
+                      />
+                      <style type="text/css">
+                        #mc_embed_signup {
+                          background: transparent;
+                          clear: left;
+                          font: 14px "Space Grotesk", "Inter", sans-serif;
+                          width: 100%;
+                        }
+                        #mc_embed_signup .mc-field-group input {
+                          border: 4px solid var(--neo-black) !important;
+                          box-shadow: 4px 4px 0px var(--neo-black) !important;
+                          font-family: "Space Grotesk", "Inter", sans-serif !important;
+                          font-weight: 700 !important;
+                          text-transform: uppercase !important;
+                          padding: 12px 16px !important;
+                          font-size: 16px !important;
+                          border-radius: 0 !important;
+                          transition: all 0.1s ease !important;
+                        }
+                        #mc_embed_signup .mc-field-group input:focus {
+                          transform: translate(2px, 2px);
+                          box-shadow: 2px 2px 0px var(--neo-black) !important;
+                          outline: none !important;
+                        }
+                        #mc_embed_signup .button {
+                          border: 5px solid var(--neo-black) !important;
+                          box-shadow: 6px 6px 0px var(--neo-black) !important;
+                          background-color: var(--neo-green) !important;
+                          color: var(--neo-black) !important;
+                          font-family: "Space Grotesk", "Inter", sans-serif !important;
+                          font-weight: 900 !important;
+                          text-transform: uppercase !important;
+                          letter-spacing: -0.02em !important;
+                          padding: 16px 24px !important;
+                          font-size: 18px !important;
+                          border-radius: 0 !important;
+                          transition: all 0.1s ease !important;
+                          width: 100% !important;
+                          min-width: 280px !important;
+                          white-space: nowrap !important;
+                          line-height: 0 !important;
+                        }
+                        #mc_embed_signup .button:hover {
+                          transform: translate(3px, 3px);
+                          box-shadow: 3px 3px 0px var(--neo-black) !important;
+                          background-color: var(--neo-green) !important;
+                        }
+                        #mc_embed_signup .button:active {
+                          transform: translate(6px, 6px);
+                          box-shadow: 0px 0px 0px var(--neo-black) !important;
+                        }
+                        #mc_embed_signup .indicates-required {
+                          font-weight: 900 !important;
+                          text-transform: uppercase !important;
+                          font-size: 14px !important;
+                          margin-bottom: 16px !important;
+                        }
+                        #mc_embed_signup label {
+                          font-weight: 900 !important;
+                          text-transform: uppercase !important;
+                          font-size: 14px !important;
+                          margin-bottom: 8px !important;
+                          display: block !important;
+                        }
+                        #mc_embed_signup .asterisk {
+                          color: var(--neo-green) !important;
+                        }
+                        .response {
+                          font-weight: 700 !important;
+                          text-transform: uppercase !important;
+                          font-family: "Space Grotesk", "Inter", sans-serif !important;
+                          border: 4px solid var(--neo-black) !important;
+                          box-shadow: 4px 4px 0px var(--neo-black) !important;
+                          padding: 12px !important;
+                          margin-top: 16px !important;
+                          border-radius: 0 !important;
+                        }
+                        #mce-success-response {
+                          background-color: rgba(30, 215, 96, 0.1) !important;
+                          color: var(--neo-black) !important;
+                        }
+                        #mce-error-response {
+                          background-color: rgba(255, 0, 0, 0.1) !important;
+                          color: var(--neo-black) !important;
+                        }
+                        #mc_embed_signup .optionalParent,
+                        #mc_embed_signup .foot {
+                          display: block !important;
+                          width: 100% !important;
+                          box-sizing: border-box !important;
+                        }
+                        #mc_embed_signup .button {
+                           width: 100% !important;
+                           min-width: 0 !important;
+                           box-sizing: border-box !important;
+                        }
+                        #mc_embed_signup .mc-field-group input {
+                           box-sizing: border-box !important;
+                           width: 100% !important;
+                        }
+                      </style>
+                      <div id="mc_embed_signup">
+                        <form
+                          action="https://tickerpod.us16.list-manage.com/subscribe/post?u=dfb0b335ae25ef99a69a2903d&id=91e5d02488&f_id=00640ee0f0"
+                          method="post"
+                          id="mc-embedded-subscribe-form"
+                          name="mc-embedded-subscribe-form"
+                          class="validate"
+                          target="_blank"
+                        >
+                          <div id="mc_embed_signup_scroll">
+                            <div class="indicates-required">
+                              <span class="asterisk">*</span> indicates required
+                            </div>
+
+                            <div class="mc-field-group mb-6">
+                              <label for="mce-FNAME"
+                                >First Name
+                                <span class="asterisk">*</span></label
+                              >
+                              <input
+                                type="text"
+                                name="FNAME"
+                                class="required text"
+                                id="mce-FNAME"
+                                required=""
+                                value=""
+                              />
+                            </div>
+
+                            <div class="mc-field-group mb-6">
+                              <label for="mce-EMAIL"
+                                >Email Address
+                                <span class="asterisk">*</span></label
+                              >
+                              <input
+                                type="email"
+                                name="EMAIL"
+                                class="required email"
+                                id="mce-EMAIL"
+                                required=""
+                                value=""
+                              />
+                            </div>
+
+                            <div hidden="">
+                              <input
+                                type="hidden"
+                                name="tags"
+                                value="4162044"
+                              />
+                            </div>
+
+                            <div id="mce-responses" class="clear foot">
+                              <div
+                                class="response"
+                                id="mce-error-response"
+                                style="display: none"
+                              ></div>
+                              <div
+                                class="response"
+                                id="mce-success-response"
+                                style="display: none"
+                              ></div>
+                            </div>
+
+                            <div
+                              aria-hidden="true"
+                              style="position: absolute; left: -5000px"
+                            >
+                              <input
+                                type="text"
+                                name="b_dfb0b335ae25ef99a69a2903d_91e5d02488"
+                                tabindex="-1"
+                                value=""
+                              />
+                            </div>
+
+                            <div class="optionalParent">
+                              <div class="clear foot">
+                                <input
+                                  type="submit"
+                                  name="subscribe"
+                                  id="mc-embedded-subscribe"
+                                  class="button"
+                                  value="Get Early Access"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                              <input type="text" name="hp_check" id="hp_check" tabindex="-1" value="" autocomplete="off" />
+                            </div>
+                        </form>
+                      </div>
+                      <script>
+                        document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function(e) {
+                          const emailInput = document.getElementById('mce-EMAIL');
+                          const email = emailInput.value.toLowerCase();
+                          const honeypot = document.getElementById('hp_check').value;
+                          
+                          // Honeypot check
+                          if (honeypot) {
+                            e.preventDefault();
+                            console.log('Spam detected');
+                            return;
+                          }
+                          
+                          // Strict email validation
+                          if (!email.includes('@') || !email.includes('.com')) {
+                            e.preventDefault();
+                            alert('Please enter a valid email address ending in .com');
+                            emailInput.focus();
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- How It Works Section -->
+          <section
+            class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-black text-white"
+            id="how-it-works"
+          >
+            <div class="max-w-6xl mx-auto">
+              <div class="text-center mb-16">
+                <h2
+                  class="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-4 neo-text-impact"
+                >
+                  How It Works
+                </h2>
+                <p class="text-xl md:text-2xl font-bold uppercase">
+                  From your stocks to your speakers in three simple steps.
+                </p>
+              </div>
+              <div class="grid md:grid-cols-3 gap-8">
+                <div
+                  class="neo-border-white bg-black p-8 text-center neo-asymmetric-1"
+                >
+                  <div
+                    class="w-20 h-20 rounded-full bg-spotify-green border-4 border-white flex items-center justify-center mx-auto mb-6"
+                  >
+                    <span class="material-symbols-outlined text-5xl text-black"
+                      >link</span
+                    >
+                  </div>
+                  <h3 class="text-2xl font-black mb-4 uppercase">
+                    1. Share Your Stocks
+                  </h3>
+                  <p class="text-lg font-medium">
+                    Enter up to 10 stock tickers. No brokerage login needed, no
+                    complicated setup.
+                  </p>
+                </div>
+                <div class="neo-border-white bg-black p-8 text-center">
+                  <div
+                    class="w-20 h-20 rounded-full bg-interactive-blue border-4 border-white flex items-center justify-center mx-auto mb-6"
+                  >
+                    <span class="material-symbols-outlined text-5xl text-white"
+                      >auto_awesome</span
+                    >
+                  </div>
+                  <h3 class="text-2xl font-black mb-4 uppercase">
+                    2. Let AI Analyze
+                  </h3>
+                  <p class="text-lg font-medium">
+                    Our AI instantly processes the latest market news relevant
+                    to your stocks and creates a custom briefing.
+                  </p>
+                </div>
+                <div
+                  class="neo-border-white bg-black p-8 text-center neo-asymmetric-2"
+                >
+                  <div
+                    class="w-20 h-20 rounded-full bg-white border-4 border-white flex items-center justify-center mx-auto mb-6"
+                  >
+                    <span class="material-symbols-outlined text-5xl text-black"
+                      >headphones</span
+                    >
+                  </div>
+                  <h3 class="text-2xl font-black mb-4 uppercase">
+                    3. Listen & Invest Smarter
+                  </h3>
+                  <p class="text-lg font-medium">
+                    Enjoy your personalized briefing on the go—commute, workout,
+                    or downtime. Stay informed without the screen time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Features Section -->
+          <section
+            class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white"
+            id="features"
+          >
+            <div class="max-w-6xl mx-auto">
+              <div class="text-center mb-16">
+                <h2
+                  class="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-4 neo-text-impact"
+                >
+                  Why Investors Choose Tickerpod
+                </h2>
+                <p class="text-xl md:text-2xl font-bold uppercase">
+                  The smarter way to stay on top of your portfolio.
+                </p>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-8">
+                <div
+                  class="neo-card p-8 neo-rotate-1"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(30, 215, 96, 0.1) 0%,
+                      rgba(255, 255, 255, 1) 100%
+                    );
+                  "
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="flex-shrink-0 w-16 h-16 bg-black border-4 border-black flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-spotify-green text-3xl"
+                        >person</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-black uppercase mb-2">
+                        Stock-Specific Insights
+                      </h3>
+                      <p class="text-lg font-medium">
+                        Forget generic market news. Every podcast focuses on
+                        only the companies in your portfolio.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="neo-card p-8 neo-rotate-2"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(41, 98, 255, 0.1) 0%,
+                      rgba(255, 255, 255, 1) 100%
+                    );
+                  "
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="flex-shrink-0 w-16 h-16 bg-black border-4 border-black flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-interactive-blue text-3xl"
+                        >smart_toy</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-black uppercase mb-2">
+                        Powered by Advanced AI
+                      </h3>
+                      <p class="text-lg font-medium">
+                        Cutting-edge AI analyzes thousands of data points to
+                        deliver accurate, relevant insights about your stocks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="neo-card p-8 neo-rotate-2"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(255, 255, 255, 1) 0%,
+                      rgba(230, 230, 230, 1) 100%
+                    );
+                  "
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="flex-shrink-0 w-16 h-16 bg-black border-4 border-black flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-white text-3xl"
+                        >schedule</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-black uppercase mb-2">
+                        5-Minute Briefings
+                      </h3>
+                      <p class="text-lg font-medium">
+                        Get comprehensive market updates in just 5 minutes—not
+                        hours of research and reading.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="neo-card p-8 neo-rotate-1"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(30, 215, 96, 0.08) 0%,
+                      rgba(255, 255, 255, 1) 100%
+                    );
+                  "
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="flex-shrink-0 w-16 h-16 bg-black border-4 border-black flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-spotify-green text-3xl"
+                        >groups</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-black uppercase mb-2">
+                        Free Beta Access
+                      </h3>
+                      <p class="text-lg font-medium">
+                        Early access to our beta. Share your feedback and help
+                        shape the future of portfolio podcasts.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CTA Section -->
+          <section
+            class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black text-white"
+          >
+            <div class="max-w-4xl mx-auto text-center">
+              <h2
+                class="text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6 neo-text-impact"
+              >
+                Ready to Transform Your Investment Research?
+              </h2>
+              <p class="text-xl md:text-2xl font-bold mb-10 uppercase">
+                Stop scrolling through endless research. Start listening to
+                AI-powered insights tailored to your portfolio.
+              </p>
+              <div class="max-w-lg mx-auto">
+                <a
+                  href="#mailchimp-form"
+                  class="w-full flex items-center justify-center h-16 px-8 bg-spotify-green text-black text-xl font-black uppercase neo-border-green"
+                >
+                  Get Early Access →
+                </a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t-6 border-black bg-white">
+          <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div
+              class="flex flex-col md:flex-row items-center justify-between gap-6 mb-6"
+            >
+              <div class="flex items-center gap-3">
+                <img
+                  src="simple_tickerpod_logo.png"
+                  alt="Tickerpod Logo"
+                  class="h-8 w-auto"
+                  style="filter: contrast(2)"
+                />
+                <p class="text-base font-black uppercase">
+                  © 2025 TICKERPOD. ALL RIGHTS RESERVED.
+                </p>
+              </div>
+              <div class="flex items-center space-x-6">
+                <a class="border-4 border-black p-2 neo-btn bg-white" href="#">
+                  <svg
+                    aria-hidden="true"
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                  <span class="sr-only">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="flex items-center justify-center gap-4 text-sm font-bold uppercase border-t-4 border-black pt-6"
+            >
+              <a
+                href="privacy.html"
+                class="hover:underline decoration-4 underline-offset-4"
+                >Privacy Policy</a
+              >
+              <span>|</span>
+              <a
+                href="terms.html"
+                class="hover:underline decoration-4 underline-offset-4"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Audio Player Script -->
+    <script>
+      const audioPlayer = document.getElementById("podcast-player")
+      const playBtn = document.getElementById("play-btn")
+      const rewindBtn = document.getElementById("rewind-btn")
+      const forwardBtn = document.getElementById("forward-btn")
+      const speedBtn = document.getElementById("speed-btn")
+      const progressBar = document.getElementById("progress-bar")
+      const progressContainer = document.getElementById("progress-container")
+      const currentTimeEl = document.getElementById("current-time")
+      const durationEl = document.getElementById("duration")
+
+      const speedOptions = [0.5, 0.75, 1, 1.25, 1.5, 2]
+      let currentSpeedIndex = 2
+
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60)
+        const remainingSeconds = Math.floor(seconds % 60)
+        return `${minutes}:${
+          remainingSeconds < 10 ? "0" : ""
+        }${remainingSeconds}`
+      }
+
+      function updateProgress() {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100
+        progressBar.style.width = `${progress}%`
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime)
+      }
+
+      playBtn.addEventListener("click", () => {
+        const playIcon = playBtn.querySelector(".material-symbols-outlined")
+        if (audioPlayer.paused) {
+          audioPlayer.play()
+          playIcon.textContent = "pause_circle"
+        } else {
+          audioPlayer.pause()
+          playIcon.textContent = "play_circle"
+        }
+      })
+
+      rewindBtn.addEventListener("click", () => {
+        audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10)
+      })
+
+      forwardBtn.addEventListener("click", () => {
+        audioPlayer.currentTime = Math.min(
+          audioPlayer.duration,
+          audioPlayer.currentTime + 10
+        )
+      })
+
+      speedBtn.addEventListener("click", () => {
+        currentSpeedIndex = (currentSpeedIndex + 1) % speedOptions.length
+        const newSpeed = speedOptions[currentSpeedIndex]
+        audioPlayer.playbackRate = newSpeed
+        speedBtn.textContent = `${newSpeed}x`
+      })
+
+      progressContainer.addEventListener("click", (e) => {
+        const rect = progressContainer.getBoundingClientRect()
+        const percent = (e.clientX - rect.left) / rect.width
+        audioPlayer.currentTime = percent * audioPlayer.duration
+      })
+
+      audioPlayer.addEventListener("loadedmetadata", () => {
+        durationEl.textContent = formatTime(audioPlayer.duration)
+      })
+
+      audioPlayer.addEventListener("timeupdate", updateProgress)
+
+      audioPlayer.addEventListener("ended", () => {
+        const playIcon = playBtn.querySelector(".material-symbols-outlined")
+        playIcon.textContent = "play_circle"
+      })
+    </script>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const mobileMenuButton = document.getElementById("mobile-menu-button")
+      const mobileMenu = document.getElementById("mobile-menu")
+      const mobileMenuOverlay = document.getElementById("mobile-menu-overlay")
+      const menuIcon = mobileMenuButton.querySelector(
+        ".material-symbols-outlined"
+      )
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a")
+
+      const mobileMenuOpenClasses = [
+        "opacity-100",
+        "pointer-events-auto",
+        "translate-y-0",
+      ]
+      const mobileMenuClosedClasses = [
+        "opacity-0",
+        "pointer-events-none",
+        "-translate-y-2",
+      ]
+      const overlayOpenClasses = ["opacity-100", "pointer-events-auto"]
+      const overlayClosedClasses = ["opacity-0", "pointer-events-none"]
+
+      function setMobileMenuState(isOpen) {
+        mobileMenu.setAttribute("data-state", isOpen ? "open" : "closed")
+        mobileMenu.setAttribute("aria-hidden", (!isOpen).toString())
+        mobileMenuButton.setAttribute("aria-expanded", isOpen.toString())
+        mobileMenuOverlay.setAttribute("aria-hidden", (!isOpen).toString())
+
+        if (isOpen) {
+          mobileMenu.classList.remove(...mobileMenuClosedClasses)
+          mobileMenu.classList.add(...mobileMenuOpenClasses)
+          mobileMenuOverlay.classList.remove(...overlayClosedClasses)
+          mobileMenuOverlay.classList.add(...overlayOpenClasses)
+          menuIcon.textContent = "close"
+        } else {
+          mobileMenu.classList.remove(...mobileMenuOpenClasses)
+          mobileMenu.classList.add(...mobileMenuClosedClasses)
+          mobileMenuOverlay.classList.remove(...overlayOpenClasses)
+          mobileMenuOverlay.classList.add(...overlayClosedClasses)
+          menuIcon.textContent = "menu"
+        }
+      }
+
+      function toggleMobileMenu() {
+        const isOpen = mobileMenu.getAttribute("data-state") === "open"
+        setMobileMenuState(!isOpen)
+      }
+
+      setMobileMenuState(false)
+
+      mobileMenuButton.addEventListener("click", toggleMobileMenu)
+      mobileMenuOverlay.addEventListener("click", () =>
+        setMobileMenuState(false)
+      )
+
+      document.addEventListener("click", function (event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target)
+        const isClickOnButton = mobileMenuButton.contains(event.target)
+        if (!isClickInsideMenu && !isClickOnButton) {
+          setMobileMenuState(false)
+        }
+      })
+
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => setMobileMenuState(false))
+      })
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileMenuState(false)
+        }
+      })
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 768) {
+          setMobileMenuState(false)
+        }
+      })
+    </script>
+
+    <!-- Mailchimp JavaScript -->
+    <script
+      type="text/javascript"
+      src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+    ></script>
+    <script type="text/javascript">
+      ;(function ($) {
+        window.fnames = new Array()
+        window.ftypes = new Array()
+        fnames[1] = "FNAME"
+        ftypes[1] = "text"
+        fnames[0] = "EMAIL"
+        ftypes[0] = "email"
+        fnames[2] = "LNAME"
+        ftypes[2] = "text"
+        fnames[3] = "ADDRESS"
+        ftypes[3] = "address"
+        fnames[4] = "PHONE"
+        ftypes[4] = "phone"
+        fnames[5] = "BIRTHDAY"
+        ftypes[5] = "birthday"
+        fnames[6] = "COMPANY"
+        ftypes[6] = "text"
+      })(jQuery)
+      var $mcj = jQuery.noConflict(true)
+
+      // Custom success handling
+      jQuery(document).ready(function ($) {
+        // Override default success behavior to show a styled message
+        var originalSuccess = window.mc.submitSuccess
+        window.mc.submitSuccess = function (resp) {
+          // Hide form
+          $("#mc-embedded-subscribe-form").hide()
+
+          // Show custom success message
+          $("#mce-success-response").html(
+            "🎉 Welcome to Beta! Check your email for confirmation."
+          )
+          $("#mce-success-response").show()
+
+          // Scroll to success message
+          $("html, body").animate(
+            {
+              scrollTop: $("#mce-success-response").offset().top - 100,
+            },
+            500
+          )
+        }
+      })
+    </script>
+  </body>
+</html>
