@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Support - Tickerpod</title>
+    <link href="tickerpod_logo.png" rel="icon" type="image/png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --neo-black: #000000;
+        --neo-white: #ffffff;
+        --neo-green: #1ed760;
+        --neo-blue: #2962ff;
+      }
+
+      body {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+      }
+
+      .neo-border-black {
+        border: 5px solid var(--neo-black);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-border-green {
+        border: 5px solid var(--neo-green);
+        box-shadow: 8px 8px 0px var(--neo-black);
+      }
+
+      .neo-btn {
+        border: 5px solid var(--neo-black);
+        box-shadow: 6px 6px 0px var(--neo-black);
+        transition: all 0.1s ease;
+      }
+
+      .neo-btn:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px var(--neo-black);
+      }
+
+      .neo-btn:active {
+        transform: translate(6px, 6px);
+        box-shadow: 0px 0px 0px var(--neo-black);
+      }
+
+      .neo-text-impact {
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .legal-section {
+        border-left: 5px solid var(--neo-black);
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between bg-white px-4 sm:px-6 lg:px-10 py-6 border-b-6 border-black"
+      >
+        <div class="flex items-center gap-3 text-black">
+          <img
+            src="simple_tickerpod_logo.png"
+            alt="Tickerpod Logo"
+            class="h-10 w-auto"
+            style="filter: contrast(2)"
+          />
+          <h1 class="text-3xl font-black tracking-tighter neo-text-impact">
+            TICKERPOD
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            class="inline-flex items-center justify-center h-12 px-6 bg-black text-white text-base font-black uppercase neo-btn"
+            href="index.html"
+            >Back to Home</a
+          >
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+          <!-- Title Card -->
+          <div
+            class="neo-border-black bg-white p-8 md:p-12 mb-8"
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(30, 215, 96, 0.05) 0%,
+                rgba(255, 255, 255, 1) 100%
+              );
+            "
+          >
+            <h1 class="text-4xl md:text-5xl font-black mb-4 neo-text-impact">
+              Support
+            </h1>
+            <p class="text-base md:text-lg font-medium leading-relaxed">
+              Need help with TickerPod? Email us and we'll get back to you,
+              usually within 2 business days.
+            </p>
+            <a
+              href="mailto:support@tickerpod.ai"
+              class="mt-6 inline-flex items-center justify-center h-12 px-6 bg-black text-white text-base font-black uppercase neo-btn"
+              >support@tickerpod.ai</a
+            >
+          </div>
+
+          <!-- Content Card -->
+          <div class="neo-border-black bg-white p-8 md:p-12">
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                How do I restore my subscription?
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                Open the upgrade screen in the app and tap
+                <span class="font-black">Restore Purchases</span>. Make sure
+                you're signed in to the same Apple ID you used to subscribe.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                How do I cancel?
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                Subscriptions are billed through Apple. On your iPhone, open
+                <span class="font-black">Settings &rarr; your name &rarr;
+                Subscriptions &rarr; TickerPod</span> and tap Cancel
+                Subscription. You keep Pro access until the end of the current
+                billing period. Refunds are handled by Apple at
+                <a
+                  href="https://reportaproblem.apple.com"
+                  class="underline decoration-4"
+                  >reportaproblem.apple.com</a
+                >.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                How many episodes can I make?
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                Pro includes up to 30 episodes per month. Your count and reset
+                date are shown in the app under
+                <span class="font-black">Settings</span>.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                My episode failed or the audio won't play
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                Try generating the episode again. If it keeps failing, email us
+                with the tickers you picked and roughly when you tried, and
+                we'll look into it.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                How do I delete my account?
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                In the app, go to <span class="font-black">Settings &rarr;
+                Delete Account</span>. This permanently deletes your account and
+                episodes. Deleting your account doesn't cancel an Apple
+                subscription, so cancel that first (see above).
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2
+                class="text-2xl font-black uppercase mb-4 border-b-4 border-black pb-2"
+              >
+                Is this financial advice?
+              </h2>
+              <p class="text-base md:text-lg font-medium leading-relaxed">
+                No. TickerPod episodes are AI-generated summaries for
+                informational purposes only. They can contain errors, so check
+                the linked sources and do your own research before making any
+                investment decision. See our
+                <a href="terms.html" class="underline decoration-4"
+                  >Terms of Service</a
+                >.
+              </p>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t-6 border-black bg-white">
+        <div
+          class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="simple_tickerpod_logo.png"
+              alt="Tickerpod Logo"
+              class="h-8 w-auto"
+              style="filter: contrast(2)"
+            />
+            <p class="text-base font-black uppercase">
+              © 2025 TICKERPOD. ALL RIGHTS RESERVED.
+            </p>
+          </div>
+          <div class="flex items-center gap-4 text-sm font-bold uppercase">
+            <a href="privacy.html" class="hover:underline decoration-4"
+              >Privacy Policy</a
+            >
+            <span>|</span>
+            <a href="terms.html" class="hover:underline decoration-4"
+              >Terms of Service</a
+            >
+            <span>|</span>
+            <a href="support.html" class="hover:underline decoration-4"
+              >Support</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
